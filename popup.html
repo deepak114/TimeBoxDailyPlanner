@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+      <title>Timebox Planner</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <h1>Timebox Planner</h1>
+      <div id="currentDate"></div>
+
+      <h2>Top 3 Priorities</h2>
+      <input type="text" id="priority1" placeholder="Priority 1"><br>
+      <input type="text" id="priority2" placeholder="Priority 2"><br>
+      <input type="text" id="priority3" placeholder="Priority 3"><br>
+
+      <h2>Goals</h2>
+      <textarea id="goals" placeholder="Enter your goals for today"></textarea>
+
+      <h2>Schedule</h2>
+      <div id="scheduleContainer">
+        <input type="time" class="timeSlot">
+        <input type="text" class="task" placeholder="Task"><br>
+      </div>
+      <button id="addTimeSlot">Add Time Slot</button>
+
+      <script src="popup.js"></script>
+    </body>
+    </html>

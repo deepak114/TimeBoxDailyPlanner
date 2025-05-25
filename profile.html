@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile - Timebox Planner</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #f8fafc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="min-h-screen">
+            <!-- Header -->
+            <header class="bg-teal-600 text-white p-4">
+                <div class="container mx-auto flex justify-between items-center">
+                    <a href="index.html" class="text-xl font-bold">Timebox Planner</a>
+                    <a href="index.html" class="p-2 rounded-full hover:bg-teal-700">
+                        <i class="bi bi-arrow-left-circle text-2xl"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="container mx-auto p-4">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Profile</h2>
+
+                <!-- Weekly Logs -->
+                <section class="bg-white rounded-lg shadow-md p-4 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Weekly Logs</h3>
+                    <div id="weeklyLogs">
+                        <!-- Weekly logs will be displayed here -->
+                    </div>
+                </section>
+
+                <!-- Monthly Logs -->
+                <section class="bg-white rounded-lg shadow-md p-4 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Monthly Logs</h3>
+                    <div id="monthlyLogs">
+                        <!-- Monthly logs will be displayed here -->
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script>
+            // Dummy data for weekly logs
+            const weeklyLogsData = [
+                { date: '2024-07-01', priorities: ['Task 1', 'Task 2', 'Task 3'], goals: 'Goal 1, Goal 2', schedule: [{ time: '09:00', task: 'Meeting' }] },
+                { date: '2024-07-02', priorities: ['Task A', 'Task B', 'Task C'], goals: 'Goal A, Goal B', schedule: [{ time: '10:00', task: 'Presentation' }] }
+            ];
+
+            // Dummy data for monthly logs
+            const monthlyLogsData = [
+                { date: '2024-07-01', priorities: ['Task 1', 'Task 2', 'Task 3'], goals: 'Goal 1, Goal 2', schedule: [{ time: '09:00', task: 'Meeting' }] },
+                { date: '2024-07-15', priorities: ['Task X', 'Task Y', 'Task Z'], goals: 'Goal X, Goal Y', schedule: [{ time: '14:00', task: 'Workshop' }] }
+            ];
+
+            // Function to display logs
+            function displayLogs(logsData, containerId) {
+                const container = document.getElementById(containerId);
+                logsData.forEach(log => {
+                    const logEntry = document.createElement('div');
+                    logEntry.className = 'mb-4 p-3 border rounded';
+                    logEntry.innerHTML = `
+                        <h4 class="font-semibold">Date: ${log.date}</h4>
+                        <p><strong>Priorities:</strong> ${log.priorities.join(', ')}</p>
+                        <p><strong>Goals:</strong> ${log.goals}</p>
+                        <p><strong>Schedule:</strong> ${log.schedule.map(item => `${item.time} - ${item.task}`).join(', ')}</p>
+                    `;
+                    container.appendChild(logEntry);
+                });
+            }
+
+            // Display weekly and monthly logs on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                displayLogs(weeklyLogsData, 'weeklyLogs');
+                displayLogs(monthlyLogsData, 'monthlyLogs');
+            });
+        </script>
+    </body>
+    </html>
